@@ -1,0 +1,592 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+
+<!-- ▼ 브랜드명 확정: 온답스피치 / ONDAP Speech -->
+<title>온답스피치 ONDAP Speech — 광주·전남 입시·면접·발표 컨설팅</title>
+<meta name="description" content="광주·전남 학생을 위한 입시·면접·발표 컨설팅. 학교·기관 프로그램부터 개인 맞춤 세션까지. 외운 답이 아니라, 학생 안의 ‘자기답’을 정리해 말하도록 돕습니다." />
+
+<!-- ▼ Open Graph: 배포 도메인 ondapspeech.com (카톡·페북은 상대경로/JS를 못 읽음 → https 전체 URL 필수) -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="온답스피치" />
+<meta property="og:title" content="외운 답이 아니라, 온전한 자기답 — 온답스피치" />
+<meta property="og:description" content="광주·전남 학생을 위한 입시·면접·발표 컨설팅. 학교·기관 프로그램부터 개인 맞춤 세션까지." />
+<meta property="og:image" content="https://ondapspeech.com/og-image.png" />
+<meta property="og:url" content="https://ondapspeech.com/" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<!-- 파비콘: 글자 없는 심볼 (말풍선 + 골드 포인트) -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231f3d2c'/%3E%3Cpath d='M18 20h28a4 4 0 0 1 4 4v14a4 4 0 0 1-4 4H30l-9 8v-8h-3a4 4 0 0 1-4-4V24a4 4 0 0 1 4-4z' fill='none' stroke='%23f6f1e7' stroke-width='2.4'/%3E%3Ccircle cx='42' cy='31' r='3' fill='%23b08a3e'/%3E%3C/svg%3E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+<style>
+  :root{
+    /* ▼ 톤 변경은 이 변수만 바꾸면 전 페이지에 반영됩니다 */
+    --forest:#1f3d2c;        /* 메인 딥 그린 */
+    --forest-deep:#142a1e;   /* 어두운 밴드/푸터 */
+    --cream:#f6f1e7;         /* 따뜻한 종이 배경 */
+    --cream-soft:#fbf8f2;    /* 밝은 면 */
+    --gold:#b08a3e;          /* 골드 (절제된 포인트) */
+    --gold-soft:#c9a865;
+    --ink:#20271f;           /* 본문 (따뜻한 먹색) */
+    --muted:#69705f;         /* 보조 텍스트 */
+    --line:#ddd6c6;          /* 크림 위 헤어라인 */
+    --line-dark:#334a3a;     /* 그린 위 헤어라인 */
+
+    --serif:"Nanum Myeongjo", serif;
+    --sans:"Pretendard","Pretendard Variable",-apple-system,system-ui,sans-serif;
+
+    --wrap:1080px;
+    --pad:24px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--cream); color:var(--ink);
+    font-family:var(--sans); font-size:17px; line-height:1.75;
+    -webkit-font-smoothing:antialiased; word-break:keep-all; overflow-wrap:break-word;
+  }
+  h1,h2,h3{margin:0; font-weight:700; line-height:1.3; letter-spacing:-.01em}
+  p{margin:0}
+  a{color:inherit; text-decoration:none}
+  ul{margin:0; padding:0; list-style:none}
+  .wrap{max-width:var(--wrap); margin:0 auto; padding-left:var(--pad); padding-right:var(--pad)}
+
+  .band{padding:84px 0}
+  .eyebrow{
+    font-family:var(--sans); font-size:13px; font-weight:600; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--gold); margin-bottom:18px;
+    display:flex; align-items:center; gap:12px;
+  }
+  .eyebrow::before{content:""; width:26px; height:1px; background:var(--gold); display:inline-block}
+  .serif{font-family:var(--serif)}
+  .muted{color:var(--muted)}
+  .section-h{font-size:clamp(24px,4.4vw,34px); color:var(--ink); line-height:1.34}
+  .section-h .hl{color:var(--forest)}
+  .head{max-width:720px; margin-bottom:42px}
+  .head .intro{margin-top:16px; color:var(--ink); font-size:16.5px}
+
+  /* 버튼 */
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    font-family:var(--sans); font-weight:700; font-size:16px;
+    padding:15px 26px; border-radius:999px; border:1.5px solid transparent;
+    cursor:pointer; transition:transform .15s ease, background .2s ease, color .2s ease, border-color .2s ease;
+  }
+  .btn:active{transform:translateY(1px)}
+  .btn--org{background:var(--forest); color:var(--cream)}
+  .btn--org:hover{background:var(--forest-deep)}
+  .btn--person{background:var(--gold); color:#fff; border-color:var(--gold)}
+  .btn--person:hover{filter:brightness(.95)}
+  .btn--onforest-solid{background:var(--cream); color:var(--forest)}
+  .btn--onforest-solid:hover{background:#fff}
+  .btn--onforest-ghost{background:transparent; color:var(--cream); border-color:rgba(246,241,231,.55)}
+  .btn--onforest-ghost:hover{background:rgba(246,241,231,.1)}
+  .btn--lg{padding:17px 30px; font-size:17px}
+  :focus-visible{outline:2.5px solid var(--gold); outline-offset:3px; border-radius:6px}
+
+  /* 헤더 */
+  header{
+    position:sticky; top:0; z-index:50; background:rgba(246,241,231,.82);
+    backdrop-filter:saturate(140%) blur(10px); border-bottom:1px solid transparent;
+    transition:border-color .2s ease, background .2s ease;
+  }
+  header.scrolled{border-bottom-color:var(--line); background:rgba(246,241,231,.94)}
+  .nav{display:flex; align-items:center; justify-content:space-between; height:64px}
+  .brand{display:flex; align-items:baseline; gap:9px; font-weight:800; font-size:20px; color:var(--forest); letter-spacing:-.02em}
+  .brand .dot{width:9px; height:9px; border-radius:50%; background:var(--gold); align-self:center; margin-right:-2px}
+  .brand .en{font-family:var(--sans); font-weight:700; font-size:11px; letter-spacing:.18em; color:var(--gold)}
+  .nav-cta{display:flex; gap:10px}
+  .nav-cta .btn{padding:9px 18px; font-size:14px}
+
+  /* 히어로 */
+  .hero{background:linear-gradient(180deg,#fbf8f2 0%, var(--cream) 100%); padding:74px 0 80px}
+  .hero h1{margin:14px 0 0}
+  .hero h1 .a{color:var(--ink); display:block; font-size:clamp(19px,3.6vw,26px); font-weight:700; margin-bottom:8px; letter-spacing:-.01em}
+  .hero h1 .b{color:var(--forest); font-size:clamp(34px,8vw,58px); font-weight:800; line-height:1.18; letter-spacing:-.02em}
+  .hero-sub{max-width:640px; margin:26px 0 0; font-size:clamp(16px,2.3vw,18px); color:var(--ink)}
+  .hero-cta{display:flex; flex-wrap:wrap; gap:12px; margin-top:30px}
+  .hero-region{margin-top:22px; font-size:14px; color:var(--muted); letter-spacing:.03em}
+  .hero-region b{color:var(--forest); font-weight:600}
+
+  /* 신뢰 바 */
+  .trust{background:var(--forest); color:var(--cream)}
+  .trust .grid{display:grid; grid-template-columns:repeat(4,1fr)}
+  .trust .cell{padding:32px 22px; border-left:1px solid var(--line-dark)}
+  .trust .cell:first-child{border-left:0}
+  .trust .k{font-family:var(--serif); font-weight:800; font-size:18px; color:#fff; line-height:1.35}
+  .trust .v{font-size:13.5px; color:#cdd6cb; margin-top:8px}
+
+  /* 문제 공감 — 대상별 */
+  .care .qrow{border-top:1px solid var(--line); padding:26px 0; display:grid; grid-template-columns:140px 1fr; gap:24px; align-items:start}
+  .care .qrow:last-child{border-bottom:1px solid var(--line)}
+  .care .qtag{font-family:var(--sans); font-weight:700; font-size:14px; color:var(--gold); letter-spacing:.03em; padding-top:3px}
+  .care .qbody{font-family:var(--serif); font-weight:700; font-size:clamp(18px,2.8vw,22px); color:var(--forest); line-height:1.5}
+
+  /* 방식 — 6단계 컨설팅 프로세스 */
+  .flow{background:var(--cream-soft)}
+  .fgrid{display:grid; grid-template-columns:repeat(3,1fr); gap:34px 40px}
+  .fstep{position:relative}
+  .fstep .no{font-family:var(--serif); font-weight:800; font-size:14px; color:var(--gold); letter-spacing:.12em}
+  .fstep .ft{font-weight:700; font-size:18.5px; color:var(--forest); margin:10px 0 7px}
+  .fstep .fd{font-size:15px; color:var(--ink)}
+
+  /* 오퍼링 (개인 / 기관) */
+  .offer .inner{display:grid; grid-template-columns:0.9fr 1.1fr; gap:48px; align-items:start}
+  .offer .alt{background:var(--cream-soft)}
+  .olist li{display:flex; gap:14px; padding:15px 0; border-top:1px solid var(--line); font-size:16.5px}
+  .olist li:first-child{border-top:0; padding-top:0}
+  .olist .mk{flex:0 0 auto; width:7px; height:7px; border-radius:50%; background:var(--gold); margin-top:11px}
+  .olist b{color:var(--forest); font-weight:700}
+  .olist span{color:var(--muted); font-size:14.5px}
+  .offer .cta-line{margin-top:30px}
+  .chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:20px}
+  .chip{font-size:13px; color:var(--forest); border:1px solid var(--line); border-radius:999px; padding:6px 13px; background:#fff}
+  .units{margin-top:16px; font-size:14px; color:var(--muted)}
+  .units b{color:var(--forest); font-weight:600}
+
+  /* 제안서형 구성 블록 */
+  .proposal{margin-top:44px; border:1px solid var(--line); border-radius:18px; background:#fff; padding:30px 32px}
+  .proposal-h{font-size:clamp(18px,2.6vw,21px); color:var(--forest); margin-bottom:18px}
+  .proposal-list li{position:relative; padding:9px 0 9px 22px; font-size:16px; color:var(--ink); border-top:1px solid var(--line)}
+  .proposal-list li:first-child{border-top:0}
+  .proposal-list li::before{content:""; position:absolute; left:0; top:18px; width:7px; height:7px; border-radius:50%; background:var(--gold)}
+
+  /* 진도 단체 워크숍 (다크 밴드) */
+  .jindo{background:var(--forest-deep); color:var(--cream)}
+  .jindo .eyebrow{color:var(--gold-soft)}
+  .jindo .eyebrow::before{background:var(--gold-soft)}
+  .jindo h2{font-family:var(--serif); font-weight:800; font-size:clamp(25px,4.6vw,38px); color:#fff; line-height:1.34; max-width:760px}
+  .jindo p{margin-top:20px; color:#cfd8cd; font-size:16px; max-width:780px}
+  .cgrid{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:34px}
+  .ctag{border:1px solid var(--line-dark); border-radius:14px; padding:18px 14px; font-size:14px; color:#e7ede6; line-height:1.4; background:linear-gradient(160deg, rgba(176,138,62,.12), rgba(20,42,30,.15))}
+  .ctag b{display:block; font-family:var(--serif); font-weight:800; color:var(--gold-soft); font-size:15px; margin-bottom:4px}
+  .notice{margin-top:30px; border-left:3px solid var(--gold-soft); padding:14px 0 14px 20px; font-weight:700; color:#fff; font-size:16px}
+  .jindo .cta-line{margin-top:28px}
+
+  /* 대표 / 프로그램 설계 */
+  .rep .inner{display:grid; grid-template-columns:0.82fr 1.18fr; gap:48px; align-items:start}
+  .rep-photo{position:relative; margin:0; aspect-ratio:4/5; border:1px solid var(--line); border-radius:18px; overflow:hidden; background:var(--cream-soft); box-shadow:0 14px 34px -22px rgba(20,42,30,.45)}
+  .rep-photo img{width:100%; height:100%; object-fit:cover; display:block}
+  .rep-photo .ph{
+    display:none; position:absolute; inset:0; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; color:var(--muted); font-size:14px; line-height:1.55; letter-spacing:.02em;
+    border:1px dashed var(--line); border-radius:18px; background:var(--cream-soft);
+  }
+  .rep-name{font-family:var(--serif); font-weight:800; font-size:clamp(26px,4.6vw,38px); color:var(--forest); margin:14px 0 22px; line-height:1.25}
+  .rep-cv li{position:relative; padding:11px 0 11px 22px; border-bottom:1px solid var(--line); font-size:16px; color:var(--ink); line-height:1.6}
+  .rep-cv li:last-child{border-bottom:0}
+  .rep-cv li::before{content:""; position:absolute; left:0; top:19px; width:7px; height:7px; border-radius:50%; background:var(--gold)}
+  .rep-cv b{font-family:var(--serif); font-weight:700; color:var(--forest)}
+  .rep-quote{margin:46px 0 0; border-left:3px solid var(--gold); padding:6px 0 6px 24px; font-family:var(--serif); font-weight:700; font-size:clamp(20px,3.4vw,28px); color:var(--forest); line-height:1.55}
+
+  /* 변화 목표 */
+  .goal-list{display:grid; grid-template-columns:1fr 1fr; gap:14px 40px}
+  .goal-list li{display:flex; align-items:center; gap:14px; padding:16px 0; border-top:1px solid var(--line); font-size:16.5px}
+  .goal-list .from{color:var(--muted)}
+  .goal-list .arr{color:var(--gold); font-weight:700; flex:0 0 auto}
+  .goal-list .to{color:var(--forest); font-weight:700}
+  @media (max-width:680px){ .goal-list{grid-template-columns:1fr; gap:0} }
+
+  /* FAQ */
+  .faq details{border-top:1px solid var(--line); padding:20px 0}
+  .faq details:last-of-type{border-bottom:1px solid var(--line)}
+  summary{display:flex; justify-content:space-between; align-items:center; gap:16px; cursor:pointer; list-style:none; font-weight:700; font-size:17px; color:var(--forest)}
+  summary::-webkit-details-marker{display:none}
+  summary .pm{flex:0 0 auto; width:22px; height:22px; position:relative}
+  summary .pm::before,summary .pm::after{content:""; position:absolute; background:var(--gold); transition:transform .2s ease}
+  summary .pm::before{top:10px; left:2px; width:18px; height:2px}
+  summary .pm::after{top:2px; left:10px; width:2px; height:18px}
+  details[open] summary .pm::after{transform:scaleY(0)}
+  .faq .fa{margin-top:13px; color:var(--ink); font-size:16px; max-width:780px}
+
+  /* 마감 CTA */
+  .cta-final{background:var(--forest); color:var(--cream); text-align:center}
+  .cta-final .eyebrow{justify-content:center; color:var(--gold-soft)}
+  .cta-final .eyebrow::before{display:none}
+  .cta-final h2{font-family:var(--serif); font-weight:800; font-size:clamp(26px,5vw,40px); color:#fff; line-height:1.36}
+  .cta-final p{margin:18px auto 0; max-width:540px; color:#cdd6cb}
+  .cta-final .row{display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:30px}
+
+  /* 푸터 */
+  footer{background:var(--forest-deep); color:#aebaad; padding:46px 0 120px}
+  footer .ft{display:flex; flex-wrap:wrap; justify-content:space-between; gap:24px; align-items:flex-start}
+  footer .fb{font-family:var(--sans); font-weight:800; color:#fff; font-size:18px; letter-spacing:-.02em}
+  footer .fb .en{font-size:12px; color:var(--gold-soft); letter-spacing:.16em; margin-left:8px; font-weight:700}
+  footer .fmeta{font-size:13.5px; line-height:1.95}
+  footer a:hover{color:#fff}
+
+  /* 모바일 고정 CTA */
+  .mobile-bar{
+    position:fixed; left:0; right:0; bottom:0; z-index:60; display:none;
+    grid-template-columns:1fr 1fr; gap:10px; padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+    background:rgba(246,241,231,.96); backdrop-filter:blur(8px); border-top:1px solid var(--line);
+  }
+  .mobile-bar .btn{padding:13px 0; width:100%; font-size:15px}
+
+  /* 스크롤 등장 */
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease}
+  .reveal.in{opacity:1; transform:none}
+
+  /* ── 반응형 ── */
+  @media (max-width:880px){
+    .offer .inner,.rep .inner{grid-template-columns:1fr; gap:30px}
+    .rep-photo{max-width:340px}
+    .fgrid{grid-template-columns:1fr 1fr}
+    .cgrid{grid-template-columns:repeat(2,1fr)}
+  }
+  @media (max-width:680px){
+    body{font-size:16px}
+    .band{padding:58px 0}
+    .nav-cta{display:none}
+    .trust .grid{grid-template-columns:1fr 1fr}
+    .trust .cell{border-left:0; border-top:1px solid var(--line-dark); padding:22px 16px}
+    .trust .cell:nth-child(-n+2){border-top:0}
+    .trust .cell:nth-child(even){border-left:1px solid var(--line-dark)}
+    .fgrid{grid-template-columns:1fr; gap:24px}
+    .care .qrow{grid-template-columns:1fr; gap:6px}
+    .care .qtag{padding-top:0}
+    .cgrid{grid-template-columns:1fr}
+    .mobile-bar{display:grid}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .reveal{opacity:1; transform:none; transition:none}
+    .btn{transition:none}
+  }
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a class="brand" href="#top"><span class="dot"></span><span data-brand>온답스피치</span><span class="en">ONDAP SPEECH</span></a>
+    <div class="nav-cta">
+      <a class="btn btn--person" data-cta="personal" href="#">개인 면접·발표 상담</a>
+      <a class="btn btn--org" data-cta="org" href="#">학교·기관 프로그램 문의</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- [1] 히어로 -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="eyebrow">광주·전남 입시·면접·발표 컨설팅</div>
+      <h1>
+        <span class="a">외운 답이 아니라,</span>
+        <span class="serif b">온전한 자기답.</span>
+      </h1>
+      <p class="hero-sub">광주·전남 학생을 위한 입시·면접·발표 컨설팅. 학교·기관 프로그램부터 개인 맞춤 세션까지, 학생 안에 있는 답을 정리해 말할 수 있도록 돕습니다.</p>
+      <div class="hero-cta">
+        <a class="btn btn--org btn--lg" data-cta="org" href="#">학교·기관 프로그램 문의</a>
+        <a class="btn btn--person btn--lg" data-cta="personal" href="#">개인 면접·발표 상담</a>
+      </div>
+      <p class="hero-region"><b>광주 · 순천 · 여수 · 목포 · 나주 · 해남</b> — 거점형 상담·워크숍 운영</p>
+    </div>
+  </section>
+
+  <!-- [2] 신뢰 바 -->
+  <section class="trust">
+    <div class="wrap">
+      <div class="grid">
+        <div class="cell"><div class="k">저자가 설계한 프로그램</div><div class="v">『어떻게 말해야 할까』의 원리</div></div>
+        <div class="cell"><div class="k">입시·면접·발표 중심</div><div class="v">고입·대입 면접과 발표 전형</div></div>
+        <div class="cell"><div class="k">학교·기관 프로그램 가능</div><div class="v">학년·동아리·선발 학생 단위</div></div>
+        <div class="cell"><div class="k">광주·전남 거점형 운영</div><div class="v">대면·온라인·기관 프로그램 조합</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- [3] 문제 공감 -->
+  <section class="band care reveal">
+    <div class="wrap">
+      <div class="head">
+        <div class="eyebrow">이런 경우라면</div>
+        <h2 class="section-h">필요한 곳에, <span class="hl">맞는 방식으로</span> 함께합니다.</h2>
+      </div>
+
+      <div class="qrow">
+        <div class="qtag">고2 · 고3</div>
+        <div class="qbody">농어촌·지역인재·학종 면접에서 자기 답을 준비해야 하는 학생</div>
+      </div>
+      <div class="qrow">
+        <div class="qtag">중3 · 고입</div>
+        <div class="qbody">특성화고·마이스터고·일반고 고입 면접과 자기소개서가 필요한 학생</div>
+      </div>
+      <div class="qrow">
+        <div class="qtag">초 · 중</div>
+        <div class="qbody">발표 울렁증, 수행평가, 회장선거, 대회 발표가 어려운 학생</div>
+      </div>
+      <div class="qrow">
+        <div class="qtag">학교 · 기관</div>
+        <div class="qbody">학년·동아리·선발 학생 단위로 면접·발표·자기표현 프로그램이 필요한 기관</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- [4] 온답스피치의 방식 -->
+  <section class="band flow reveal">
+    <div class="wrap">
+      <div class="head">
+        <div class="eyebrow">온답스피치의 방식</div>
+        <h2 class="section-h serif">정해진 답을 외우는 곳이 아닙니다.</h2>
+        <p class="intro">예상 못 한 질문 앞에서도 자기답이 서도록, 여섯 단계의 컨설팅 프로세스로 정리합니다.</p>
+      </div>
+      <div class="fgrid">
+        <div class="fstep"><div class="no">01</div><div class="ft">상담</div><div class="fd">지금의 고민과 목표를 듣고 방향을 잡습니다. <b style="color:var(--gold)">→ 목표 전형·발표 장면 확인</b></div></div>
+        <div class="fstep"><div class="no">02</div><div class="ft">진단</div><div class="fd">현재의 말하기·면접 상태를 함께 점검합니다. <b style="color:var(--gold)">→ 말의 구조·답변 습관 점검</b></div></div>
+        <div class="fstep"><div class="no">03</div><div class="ft">자기답 설계</div><div class="fd">학생 안의 강점을 ‘자기답’으로 정리합니다. <b style="color:var(--gold)">→ 핵심 경험·지원동기·예상 질문 정리</b></div></div>
+        <div class="fstep"><div class="no">04</div><div class="ft">실전 리허설</div><div class="fd">면접·발표 장면을 실제처럼 리허설합니다. <b style="color:var(--gold)">→ 압박 질문·꼬리 질문·발표 장면 점검</b></div></div>
+        <div class="fstep"><div class="no">05</div><div class="ft">피드백</div><div class="fd">장면별로 구체적인 피드백을 더합니다. <b style="color:var(--gold)">→ 답변 구조·시선·속도·목소리 피드백</b></div></div>
+        <div class="fstep"><div class="no">06</div><div class="ft">최종 점검</div><div class="fd">본 무대 전, 자기답이 서는지 마지막으로 확인합니다. <b style="color:var(--gold)">→ 실전용 자기답 정리</b></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- [5] 개인 컨설팅 -->
+  <section class="band offer reveal">
+    <div class="wrap">
+      <div class="inner">
+        <div class="head" style="margin-bottom:0">
+          <div class="eyebrow">개인</div>
+          <h2 class="section-h serif">개인 맞춤 면접·발표 컨설팅</h2>
+          <p class="intro">목표 일정에 맞춰 개별 세션으로 구성합니다.</p>
+          <div class="chips">
+            <span class="chip">초등</span><span class="chip">중등</span><span class="chip">고등</span>
+            <span class="chip">학부모 상담</span><span class="chip">거점 도시 직접 방문</span><span class="chip">온라인 가능</span>
+          </div>
+          <p class="units">광주·순천·여수·목포·나주·해남 등 <b>거점 도시</b>로 직접 찾아가 진행합니다.</p>
+          <div class="cta-line"><a class="btn btn--person" data-cta="personal" href="#">개인 면접·발표 상담</a></div>
+        </div>
+        <ul class="olist">
+          <li><span class="mk"></span><div><b>면접이 2~4주 남은 학생</b> <span>— 학생부·자기소개서 기반 예상 질문을 정리하고 실전 리허설을 진행합니다.</span></div></li>
+          <li><span class="mk"></span><div><b>자기소개서와 면접을 함께 준비하는 중3 학생</b> <span>— 지원 동기, 학교 선택 이유, 활동 경험을 자기답으로 정리합니다.</span></div></li>
+          <li><span class="mk"></span><div><b>발표만 하면 얼어붙는 초·중학생</b> <span>— 수행평가·회장선거·대회 발표 상황에 맞춰 말의 구조와 전달 방식을 점검합니다.</span></div></li>
+          <li><span class="mk"></span><div><b>회장선거·대회 발표를 앞둔 학생</b> <span>— 장면에 맞는 메시지와 전달을 리허설로 다듬습니다.</span></div></li>
+          <li><span class="mk"></span><div><b>온라인 피드백 가능</b> <span>— 지역과 일정에 맞춰.</span></div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- [6] 학교·기관 프로그램 -->
+  <section class="band offer alt reveal">
+    <div class="wrap">
+      <div class="inner">
+        <div class="head" style="margin-bottom:0">
+          <div class="eyebrow">학교 · 기관</div>
+          <h2 class="section-h serif">학교·기관을 위한 온답스피치 프로그램</h2>
+          <p class="intro">학년·동아리·선발 학생 단위로, 대상과 목적에 맞게 구성합니다.</p>
+          <div class="chips">
+            <span class="chip">학교</span><span class="chip">교육지원청</span><span class="chip">지자체</span>
+            <span class="chip">청소년기관</span><span class="chip">지역아동센터</span><span class="chip">진로체험 기관</span>
+          </div>
+          <div class="cta-line"><a class="btn btn--org" data-cta="org" href="#">학교·기관 프로그램 문의</a></div>
+        </div>
+        <ul class="olist">
+          <li><span class="mk"></span><div><b>찾아가는 면접 워크숍</b></div></li>
+          <li><span class="mk"></span><div><b>자기소개서·면접 특강</b></div></li>
+          <li><span class="mk"></span><div><b>발표력·자기표현 프로그램</b></div></li>
+          <li><span class="mk"></span><div><b>진로·커뮤니케이션 워크숍</b></div></li>
+          <li><span class="mk"></span><div><b>실전 모의면접 데이</b></div></li>
+          <li><span class="mk"></span><div><b>학년·동아리·선발 학생 맞춤형 프로그램</b></div></li>
+        </ul>
+      </div>
+
+      <div class="proposal">
+        <h3 class="proposal-h serif">기관 운영에 맞춰 제안서 형태로 구성합니다</h3>
+        <ul class="proposal-list">
+          <li>학년 단위 / 동아리 단위 / 선발 학생 단위 구성 가능</li>
+          <li>1회 특강, 반나절 워크숍, 1일 집중 프로그램, 1박 2일 워크숍 협의 가능</li>
+          <li>대상 학년·목적·예산·장소에 맞춰 프로그램안 구성</li>
+          <li>필요 시 운영안, 견적서, 결과보고 자료 협의 가능</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- [7] 진도 1박 2일 단체 워크숍 -->
+  <section class="band jindo reveal">
+    <div class="wrap">
+      <div class="eyebrow">진도 · 단체 협의형</div>
+      <h2>인솔자가 있는 단체를 위한<br>진도 1박 2일 몰입 워크숍</h2>
+      <p>학교·기관·단체가 인솔자와 함께 진도에 방문해 1박 2일 동안 면접, 발표, 자기소개, 실전 리허설을 집중적으로 진행하는 협의형 프로그램입니다. 개인 학생을 공개 모집하는 방식이 아니라, 단체의 목적과 안전관리 체계에 맞춰 사전 협의 후 운영합니다. 숙박·이동·인솔·안전관리는 단체와 사전 협의하여 운영하며, 프로그램은 대상과 목적에 맞게 구성합니다.</p>
+      <div class="cgrid">
+        <div class="ctag"><b>협의형</b>학교·기관·단체와 사전 협의</div>
+        <div class="ctag"><b>인솔자 동반</b>인솔자 동반을 전제로 운영</div>
+        <div class="ctag"><b>1박 2일</b>몰입형 일정으로 구성</div>
+        <div class="ctag"><b>실전 중심</b>면접·발표·자기소개 리허설</div>
+        <div class="ctag"><b>지역 연계</b>진도 지역 자원 연계 가능</div>
+        <div class="ctag"><b>운영 협의</b>일정·장소·안전관리 방식 사전 조율</div>
+      </div>
+      <p class="notice">개인 공개 모집 방식이 아닌, 기관·단체 협의형 프로그램입니다.</p>
+      <p style="margin-top:18px; color:#cfd8cd; font-size:15px; max-width:780px">본 프로그램은 학교·기관·단체와 사전 협의하여 운영합니다. 숙박·이동·인솔·안전관리·보험·장소 운영 방식은 주최 기관의 기준과 현장 여건에 맞춰 별도 협의합니다.</p>
+      <div class="cta-line"><a class="btn btn--onforest-solid" data-cta="org" href="#">진도 워크숍 문의</a></div>
+    </div>
+  </section>
+
+  <!-- [8] 대표 / 프로그램 설계 -->
+  <section class="band rep reveal">
+    <div class="wrap">
+      <div class="inner">
+        <!-- 왼쪽: 대표 사진(세로 4:5) — 실제 사진 준비되면 아래 <img src>를 rep.jpg 등으로 교체만 하면 됩니다 -->
+        <figure class="rep-photo">
+          <img src="rep.jpg" alt="조성은 대표" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <span class="ph">대표 사진<br>(세로 4:5)</span>
+        </figure>
+
+        <!-- 오른쪽: 이력 -->
+        <div class="rep-info">
+          <div class="eyebrow">대표 · 프로그램 설계</div>
+          <h2 class="rep-name">조성은 대표</h2>
+          <ul class="rep-cv">
+            <li>경희대학교 미디어커뮤니케이션대학원 스피치토론 전공</li>
+            <li>종합 베스트셀러 <b>『어떻게 말해야 할까』</b> 저자</li>
+            <li>자기계발 베스트셀러 <b>『아주 보통의 하루를 만드는 엄마의 말투』</b> 저자</li>
+            <li>스피치·커뮤니케이션 교육 및 기관 프로그램 진행</li>
+            <li>학생·학부모·기관 대상 말하기 프로그램 설계</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 하단 인용구 -->
+      <blockquote class="rep-quote">외운 답이 아니라,<br>아이 안의 자기답을 끌어올립니다.</blockquote>
+    </div>
+  </section>
+
+  <!-- [8.5] 변화 목표 -->
+  <section class="band goal reveal">
+    <div class="wrap">
+      <div class="head">
+        <div class="eyebrow">변화 목표</div>
+        <h2 class="section-h serif">이런 변화가 목표입니다</h2>
+        <p class="intro">실제 후기가 아니라, 프로그램이 지향하는 변화입니다.</p>
+      </div>
+      <ul class="goal-list">
+        <li><span class="from">외운 답변</span><span class="arr">→</span><span class="to">자기 경험 기반 답변</span></li>
+        <li><span class="from">작은 목소리</span><span class="arr">→</span><span class="to">전달력 있는 발표</span></li>
+        <li><span class="from">막연한 지원동기</span><span class="arr">→</span><span class="to">구체적인 자기소개</span></li>
+        <li><span class="from">예상 질문 암기</span><span class="arr">→</span><span class="to">꼬리 질문 대응</span></li>
+        <li><span class="from">발표 불안</span><span class="arr">→</span><span class="to">장면별 리허설</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- [9] FAQ -->
+  <section class="band faq reveal">
+    <div class="wrap">
+      <div class="head">
+        <div class="eyebrow">자주 묻는 질문</div>
+        <h2 class="section-h serif">궁금한 것부터 물어보세요</h2>
+      </div>
+
+      <details>
+        <summary>개인 상담도 가능한가요?<span class="pm"></span></summary>
+        <p class="fa">네. 학종·농어촌·고입 면접부터 발표·수행평가까지, 목표 일정에 맞춰 개별 세션으로 구성합니다.</p>
+      </details>
+      <details>
+        <summary>학교나 기관 단위 프로그램도 가능한가요?<span class="pm"></span></summary>
+        <p class="fa">네. 학년·동아리·선발 학생 단위로 면접·발표·자기표현 프로그램을 구성합니다. 학교·교육지원청·지자체·청소년기관·지역아동센터·진로체험 기관과 함께 진행합니다.</p>
+      </details>
+      <details>
+        <summary>진도 1박 2일 워크숍은 어떻게 운영되나요?<span class="pm"></span></summary>
+        <p class="fa">진도 1박 2일 워크숍은 학교·기관·단체와 협의하여 운영하는 단체형 프로그램입니다. 인솔자 동반, 일정, 인원, 장소, 안전관리 방식 등을 사전에 협의한 뒤 진행합니다.</p>
+      </details>
+      <details>
+        <summary>광주·전남 어느 지역에서 진행하나요?<span class="pm"></span></summary>
+        <p class="fa">광주·순천·여수·목포·나주·해남 등 주요 거점에서 진행합니다. 지역과 일정에 따라 대면 세션, 기관 방문 프로그램, 온라인 피드백을 조합합니다.</p>
+      </details>
+      <details>
+        <summary>온라인 피드백도 가능한가요?<span class="pm"></span></summary>
+        <p class="fa">네. 진단·리허설 같은 핵심 과정은 대면으로, 사이사이 피드백은 온라인으로 운영할 수 있습니다.</p>
+      </details>
+      <details>
+        <summary>비용은 어떻게 정해지나요?<span class="pm"></span></summary>
+        <p class="fa">대상과 목적, 구성에 따라 달라집니다. 개인은 상담에서, 기관은 프로그램 협의 과정에서 안내드립니다.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- [10] 마감 CTA -->
+  <section class="band cta-final reveal">
+    <div class="wrap">
+      <div class="eyebrow">문의</div>
+      <h2>우리 학생에게 필요한 답을,<br>함께 정리합니다.</h2>
+      <p>개인 면접·발표 준비도, 학교·기관 프로그램도 — 필요한 방식부터 함께 정합니다.</p>
+      <div class="row">
+        <a class="btn btn--onforest-solid btn--lg" data-cta="org" href="#">학교·기관 프로그램 문의</a>
+        <a class="btn btn--onforest-ghost btn--lg" data-cta="personal" href="#">개인 면접·발표 상담</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap ft">
+    <div>
+      <div class="fb"><span data-brand>온답스피치</span><span class="en">ONDAP SPEECH</span></div>
+      <div class="fmeta">광주·전남 입시·면접·발표 컨설팅</div>
+    </div>
+    <div class="fmeta">
+      상호 온답스피치컨설팅 · 대표 조성은<br>
+      <!-- ▼ 실제 정보로 교체 -->
+      사업자등록번호 추후 입력<br>
+      <a data-tel href="#">전화 상담</a> · <a data-kakao target="_blank" rel="noopener" href="#">카카오톡</a><br>
+      광주 · 전남 / 진도
+    </div>
+  </div>
+  <div class="wrap fmeta" style="margin-top:26px; opacity:.7">© 2026 <span data-brand>온답스피치</span> ONDAP Speech. All rights reserved.</div>
+</footer>
+
+<!-- 모바일 하단 고정 CTA -->
+<div class="mobile-bar">
+  <a class="btn btn--org" data-cta="org" href="#">학교·기관 문의</a>
+  <a class="btn btn--person" data-cta="personal" href="#">개인 상담</a>
+</div>
+
+<script>
+  /* ===== 여기만 바꾸면 됩니다 ===== */
+  const CONFIG = {
+    phone: "010-0000-0000",                       // 상담 전화번호
+    kakao: "https://pf.kakao.com/_xxxxxxx",        // 카카오톡 채널 URL
+    // (선택) 기관/개인 문의를 다른 채널로 보내고 싶을 때만 입력. 비워두면 기관=전화, 개인=카카오 기본값 사용.
+    orgInquiry: "",                                // 기관 문의폼 URL — 구글폼/네이버폼 주소를 넣으면 모든 '학교·기관 프로그램 문의' 버튼이 이 폼으로 연결됩니다. 비워두면 전화 연결.
+    personalInquiry: ""                            // 예: 카카오 URL 또는 "tel:..."
+  };
+  /* ============================== */
+
+  const isHttp = (u) => /^https?:\/\//i.test(u);
+  const telHref = 'tel:' + CONFIG.phone.replace(/[^0-9+]/g, '');
+  const orgHref = CONFIG.orgInquiry || telHref;        // 기관 문의 기본값: 전화
+  const perHref = CONFIG.personalInquiry || CONFIG.kakao; // 개인 상담 기본값: 카카오
+
+  const wire = (sel, href) => document.querySelectorAll(sel).forEach(a => {
+    a.setAttribute('href', href);
+    if (isHttp(href)) { a.setAttribute('target', '_blank'); a.setAttribute('rel', 'noopener'); }
+  });
+  wire('[data-cta="org"]', orgHref);
+  wire('[data-cta="personal"]', perHref);
+  document.querySelectorAll('[data-tel]').forEach(a => a.setAttribute('href', telHref));
+  document.querySelectorAll('[data-kakao]').forEach(a => { a.setAttribute('href', CONFIG.kakao); a.setAttribute('target','_blank'); a.setAttribute('rel','noopener'); });
+
+  // 헤더 스크롤 상태
+  const hdr = document.getElementById('hdr');
+  const onScroll = () => hdr.classList.toggle('scrolled', window.scrollY > 10);
+  onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
+
+  // 스크롤 등장
+  const io = new IntersectionObserver((es) => {
+    es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: .12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

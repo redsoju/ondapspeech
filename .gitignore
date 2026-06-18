@@ -1,0 +1,7 @@
+# OS / 편집기 잡파일만 무시 — 이미지(og-image.png, rep.jpg 등)는 추적 대상이므로 절대 넣지 말 것
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+.vscode/
+.idea/
